@@ -1,0 +1,4 @@
+rootProject.name = 'java8_study'
+include 'parallel'
+include 'lambda'
+
