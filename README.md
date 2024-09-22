@@ -1,4 +1,12 @@
-# 자바8 학습
+# java8 study
+
+## 람다식
+다음 디렉토리에서 진행합니다.
+
+[lambda](java8_study/lambda/src/main/)
+
+## 함수형 인터페이스
+
 
 ## JMH
 다음 [링크](https://github.com/melix/jmh-gradle-plugin) 참고
@@ -7,8 +15,3 @@
 ```text
 gradle jmh
 ```
-
-## 람다식
-
-## 함수형 인터페이스
-
