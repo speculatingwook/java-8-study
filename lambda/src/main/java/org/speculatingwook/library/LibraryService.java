@@ -1,9 +1,8 @@
-package org.speculatingwook.service;
+package org.speculatingwook.library;
 
-import org.speculatingwook.book.BookProcessor;
-import org.speculatingwook.book.BookTransformer;
-import org.speculatingwook.book.BookValidator;
-import org.speculatingwook.domain.Book;
+import org.speculatingwook.library.book.BookProcessor;
+import org.speculatingwook.library.book.BookTransformer;
+import org.speculatingwook.library.book.BookValidator;
 
 import java.util.*;
 import java.util.function.BiFunction;

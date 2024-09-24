@@ -1,4 +1,4 @@
-package org.speculatingwook.domain;
+package org.speculatingwook.library;
 
 import java.time.LocalDate;
 import java.util.List;

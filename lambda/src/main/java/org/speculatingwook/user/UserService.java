@@ -1,6 +1,4 @@
-package org.speculatingwook.service;
-
-import org.speculatingwook.domain.User;
+package org.speculatingwook.user;
 
 import java.util.*;
 import java.util.function.Consumer;

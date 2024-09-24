@@ -1,4 +1,4 @@
-package org.speculatingwook.domain;
+package org.speculatingwook.user;
 
 public class User {
     private String name;

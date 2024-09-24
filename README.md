@@ -9,6 +9,7 @@
 - [ ] [UserServiceTest](/lambda/src/test/java/org/speculatingwook/service/UserServiceTest.java)의 테스트를 모두 통과한다.
 - [ ] [LibraryServiceTest](/lambda/src/test/java/org/speculatingwook/service/LibraryServiceTest.java)의 테스트를 모두 통과한다.
 
+
 ### 요구사항
 - JDK 8 이상을 사용합니다.
 
@@ -26,5 +27,6 @@ gradle jmh
 ## 3. 리팩토링, 테스팅, 디버깅
 
 ## 4. Optional 클래스
+- [ ] [OrderProcessingServiceTest](/lambda/src/test/java/org/speculatingwook/service/OrderProcessingServiceTest.java)의 테스트를 모두 통과한다.
 
 ## 5. 함수형 프로그래밍과 자바

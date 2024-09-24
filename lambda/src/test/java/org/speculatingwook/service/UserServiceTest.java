@@ -4,7 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.speculatingwook.domain.User;
+import org.speculatingwook.user.User;
+import org.speculatingwook.user.UserService;
 
 import java.util.*;
 
