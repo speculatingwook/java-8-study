@@ -68,9 +68,9 @@ public class OrderProcessingServiceTest {
 
     @Test
     void testFindMostOrderedProduct() {
-        Optional<Product> mostOrdered = service.findMostOrderedProduct();
-        assertTrue(mostOrdered.isPresent());
-        assertEquals("T-shirt", mostOrdered.get().getName());
+        Product mostOrdered = service.findMostOrderedProduct();
+        assertTrue(mostOrdered != null);
+        assertEquals("T-shirt", mostOrdered.getName());
     }
 
     @Test
@@ -121,12 +121,12 @@ public class OrderProcessingServiceTest {
 
     @Test
     void testFindTopCustomer() {
-        Optional<String> topCustomer = service.findTopCustomer(
+        String topCustomer = service.findTopCustomer(
                 LocalDate.of(2023, 1, 1),
                 LocalDate.of(2023, 1, 7)
         );
-        assertTrue(topCustomer.isPresent());
-        assertEquals("C1", topCustomer.get());
+        assertTrue(topCustomer.isEmpty());
+        assertEquals("C1", topCustomer);
     }
 
     @Test
