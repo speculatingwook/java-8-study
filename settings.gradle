@@ -2,5 +2,4 @@ rootProject.name = 'java8_study'
 include 'parallel'
 include 'lambda'
 include 'async_java'
-include 'async_java'
 
