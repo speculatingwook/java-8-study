@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.speculatingwook'
+version = 'unspecified'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.projectreactor:reactor-core:3.4.22'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'io.projectreactor:reactor-test:3.4.22'
+}
+
+test {
+    useJUnitPlatform()
+}
