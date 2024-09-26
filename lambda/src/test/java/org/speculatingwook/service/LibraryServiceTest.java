@@ -16,6 +16,10 @@ import java.util.function.UnaryOperator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * UserService는 맛보기였다. 이제 좀 더 복잡한 문제를 해결해보자.
+ * 테스트코드가 비어있다면 테스트코드를, 비어있지 않다면 library 디렉토리를 수정하여 테스트를 모두 통과해보자.
+ */
 public class LibraryServiceTest {
     private LibraryService libraryService;
 

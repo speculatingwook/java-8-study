@@ -9,7 +9,10 @@ import org.speculatingwook.user.UserService;
 
 import java.util.*;
 
-
+/**
+ * UserService의 모든 테스트를 통과해보자.
+ * - 테스트 코드가 성공적으로 동작 가능하도록 user 디렉토리의 코드를 작성해보자.
+ */
 public class UserServiceTest {
     private UserService userService;
 

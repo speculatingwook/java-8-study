@@ -11,7 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.*;
 
-
+/**
+ * 복습 겸 지금까지 배운 것들을 활용해보자.
+ */
 public class OrderProcessingServiceTest {
 
     private OrderProcessingService service;
