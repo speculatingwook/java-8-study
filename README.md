@@ -6,6 +6,26 @@
 - `모던 액션 인 자바`
 - 추가 교재 사용 고려중
 
+## :rocket: 미션 진행 방법
+
+- build.gradle을 참고하여 환경 설정은 스스로 찾아서 한다.
+- 미션을 시작할 때, `해당 기수(앞년도만) + 자신의 영문 이름`으로 브랜치를 파고(예: `24YoonByungWook`), 해당 레포에 브랜치를 생성한다.
+- `main` 브랜치는 절대 건들지 말아주세요!!
+- 이후 `fork`하여 개인 브랜치에서 작업한다.(fork할때, 모든 브랜치를 fork한다!) 미션을 마치면 해당 레포로 병합 요청한다.
+- 리뷰 후 병합할 예정입니다!
+
+<br/>
+
+- 예시
+```text
+git status
+- On branch main
+git branch 24YoonByungWook
+git checkout 24YoonByungWook
+git push origin 24YoonByungWook
+// 이후 fork하여 개인 레포에서 미션 진행
+```
+
 <br/>
 
 ## 1. 람다표현식 / Stream 익숙해지기
