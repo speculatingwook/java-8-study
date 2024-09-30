@@ -127,7 +127,6 @@ public class OrderProcessingServiceTest {
                 LocalDate.of(2023, 1, 1),
                 LocalDate.of(2023, 1, 7)
         );
-        assertTrue(topCustomer.isEmpty());
         assertEquals("C1", topCustomer);
     }
 
