@@ -17,7 +17,7 @@ import java.util.function.UnaryOperator;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * UserService는 맛보기였다. 이제 좀 더 복잡한 문제를 해결해보자.
+ * UserService에 이어 이제 좀 더 복잡한 문제를 해결해보자.
  * 테스트코드가 비어있다면 테스트코드를, 비어있지 않다면 library 디렉토리를 수정하여 테스트를 모두 통과해보자.
  */
 public class LibraryServiceTest {
@@ -33,24 +33,37 @@ public class LibraryServiceTest {
         libraryService.addBook(new Book("Brave New World", "Aldous Huxley", "3141", LocalDate.of(1932, 1, 1), Arrays.asList("Dystopian", "Science fiction")));
     }
 
+
+    /**
+     * 1단계
+     */
+
+    // 1
     @Test
     public void testFindBooks() {
         List<Book> dystopianBooks = libraryService.findBooks(book -> book.getCategories().contains("Dystopian"));
         assertEquals(2, dystopianBooks.size());
     }
 
+    // 2
     @Test
     public void testGroupBooksByAuthor() {
         Map<String, List<Book>> booksByAuthor = libraryService.groupBooksByAuthor();
         assertEquals(2, booksByAuthor.get("George Orwell").size());
     }
 
+    // 3
     @Test
     public void testCountBooksByCategory() {
         Map<String, Long> categoryCount = libraryService.countBooksByCategory();
         assertEquals(2L, (long) categoryCount.get("Dystopian"));
     }
 
+    /**
+     * 2단계
+     */
+
+    // 4
     @Test
     public void testGetMostPopularCategories() {
         List<String> popularCategories = libraryService.getMostPopularCategories(3);
@@ -58,12 +71,14 @@ public class LibraryServiceTest {
         assertTrue(popularCategories.contains("Dystopian"));
     }
 
+    // 5
     @Test
     public void testGetAverageBookAge() {
         double averageAge = libraryService.getAverageBookAge();
         assertTrue(averageAge > 60 && averageAge < 100);
     }
 
+    // 6
     @Test
     public void testGetRecentBooks() {
         List<Book> recentBooks = libraryService.getRecentBooks(2);
@@ -71,6 +86,7 @@ public class LibraryServiceTest {
         assertTrue(recentBooks.get(0).getPublishDate().isAfter(recentBooks.get(1).getPublishDate()));
     }
 
+    // 7
     @Test
     public void testLendAndReturnBook() {
         assertTrue(libraryService.lendBook("1234"));
@@ -79,6 +95,11 @@ public class LibraryServiceTest {
         assertTrue(libraryService.lendBook("1234"));
     }
 
+    /**
+     * 3단계
+     */
+
+    // 8
     @Test
     public void testPartitionBooksByAvailability() {
         libraryService.lendBook("1234");
@@ -87,20 +108,21 @@ public class LibraryServiceTest {
         assertEquals(1, partitionedBooks.get(false).size());
     }
 
+    // 9
     @Test
     public void testGetMostProlificAuthor() {
         String prolificAuthor = libraryService.getMostProlificAuthor();
         assertEquals("George Orwell", prolificAuthor);
     }
 
+    // 10
     @Test
     public void testGetTotalTitleLength() {
         int totalTitleLength = libraryService.getTotalTitleLength();
         assertEquals(67, totalTitleLength);
     }
 
-    // 함수형 인터페이스 학습 테스트
-
+    // 11
     @Test
     public void testProcessBooks() {
         final int[] count = {0};
@@ -112,6 +134,7 @@ public class LibraryServiceTest {
     }
 
     /**
+     * 12
      * 1950년 1월 1일 이후에 출판 된 책을 가져오기
      */
     @Test
@@ -124,6 +147,7 @@ public class LibraryServiceTest {
         assertEquals(1, recentBooks.size());
     }
 
+    // 13
     @Test
     public void testTransformBooks() {
         BookTransformer<String> titleTransformer = book -> {
@@ -134,6 +158,7 @@ public class LibraryServiceTest {
     }
 
     /**
+     * 14
      * book name: The Catcher in the Rye
      * author: J.D. Salinger
      * date: 1951.7.16
@@ -150,22 +175,22 @@ public class LibraryServiceTest {
         assertEquals(6, libraryService.findBooks(book -> true).size());
     }
 
+    // 15
     @Test
     public void testCompareBooks() {
         Book book1 = libraryService.findBookByIsbn("1234").orElseThrow();
         Book book2 = libraryService.findBookByIsbn("5678").orElseThrow();
         BiFunction<Book, Book, Boolean> publishDateComparator = (b1, b2) -> {
-            // TODO: 이 부분을 완성하세요.
-            return false; // 이 부분을 적절히 수정하세요.
+            return false; // TODO: 이 부분을 적절히 수정하세요.
         };
         assertTrue(libraryService.compareBooks(book1, book2, publishDateComparator));
     }
 
+    // 16
     @Test
     public void testUpdateBookState() {
         UnaryOperator<Book> makeUnavailable = book -> {
-            // TODO: 이 부분을 완성하세요.
-            return book; // 이 부분을 적절히 수정하세요.
+            return book; // TODO: 이 부분을 적절히 수정하세요.
         };
         libraryService.updateBookState("1234", makeUnavailable);
         assertFalse(libraryService.findBookByIsbn("1234").orElseThrow().isAvailable());
