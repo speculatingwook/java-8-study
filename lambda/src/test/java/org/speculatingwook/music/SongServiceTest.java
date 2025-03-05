@@ -1,4 +1,4 @@
-package org.speculatingwook.service;
+package org.speculatingwook.music;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
