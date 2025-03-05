@@ -1,4 +1,4 @@
-package org.speculatingwook.music;
+package org.speculatingwook.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -206,7 +206,9 @@ public class SongServiceTest {
         final int[] count = {0};
         songService.processSongs(s -> {
             // 300초 이상인 곡 개수 세기
-
+            if (s.getDuration() >= 300) {
+                count[0]++;
+            }
         });
         // Bohemian Rhapsody, Hotel California, Stairway to Heaven -> 총 3곡
         assertEquals(3, count[0]);
@@ -215,8 +217,7 @@ public class SongServiceTest {
     // 20.
     @Test
     public void testSortSongs() {
-        // 아래 sortSongs 파라미터 작성
-        songService.sortSongs(null);
+        songService.sortSongs(Comparator.comparingInt(Song::getDuration).reversed());
         List<Song> sorted = songService.getSongs();
         // 내림차순: [Stairway to Heaven(482), Hotel California(391), Bohemian Rhapsody(354), Shape of You(233), Imagine(183)]
         assertEquals("Stairway to Heaven", sorted.get(0).getTitle());
