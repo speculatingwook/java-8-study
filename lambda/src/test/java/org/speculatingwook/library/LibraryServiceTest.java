@@ -1,12 +1,10 @@
-package org.speculatingwook.service;
+package org.speculatingwook.library;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.speculatingwook.library.book.BookProcessor;
 import org.speculatingwook.library.book.BookTransformer;
 import org.speculatingwook.library.book.BookValidator;
-import org.speculatingwook.library.Book;
-import org.speculatingwook.library.LibraryService;
 
 import java.time.LocalDate;
 import java.util.*;
