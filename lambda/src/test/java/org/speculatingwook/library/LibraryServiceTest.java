@@ -124,9 +124,7 @@ public class LibraryServiceTest {
     @Test
     public void testProcessBooks() {
         final int[] count = {0};
-        BookProcessor countProcessor = book -> {
-            // TODO: 이 부분을 완성하세요.
-        };
+        BookProcessor countProcessor = book -> count[0]++;
         libraryService.processBooks(countProcessor);
         assertEquals(5, count[0]);
     }
@@ -137,10 +135,7 @@ public class LibraryServiceTest {
      */
     @Test
     public void testGetValidBooks() {
-        BookValidator recentBookValidator = book -> {
-            // TODO: 이 부분을 완성하세요.
-            return false; // 이 부분을 적절히 수정하세요.
-        };
+        BookValidator recentBookValidator = book -> book.getPublishDate().isAfter(LocalDate.of(1950, 1, 1));
         List<Book> recentBooks = libraryService.getValidBooks(recentBookValidator);
         assertEquals(1, recentBooks.size());
     }
@@ -148,9 +143,7 @@ public class LibraryServiceTest {
     // 13
     @Test
     public void testTransformBooks() {
-        BookTransformer<String> titleTransformer = book -> {
-            return ""; // 이 부분을 적절히 수정하세요.
-        };
+        BookTransformer<String> titleTransformer = book -> book.getTitle();
         List<String> titles = libraryService.transformBooks(titleTransformer);
         assertEquals(Arrays.asList("1984", "To Kill a Mockingbird", "The Great Gatsby", "Animal Farm", "Brave New World"), titles);
     }
@@ -165,10 +158,7 @@ public class LibraryServiceTest {
      */
     @Test
     public void testAddNewBook() {
-        Supplier<Book> newBookSupplier = () -> {
-            // TODO: 이 부분을 완성하세요.
-            return null; // 이 부분을 적절히 수정하세요.
-        };
+        Supplier<Book> newBookSupplier = () -> new Book("The Catcher in the Rye", "J.D. Salinger", "2222", LocalDate.of(1951, 7, 16), Arrays.asList("Coming-of-age", "Realistic fiction"));
         libraryService.addNewBook(newBookSupplier);
         assertEquals(6, libraryService.findBooks(book -> true).size());
     }
@@ -178,9 +168,7 @@ public class LibraryServiceTest {
     public void testCompareBooks() {
         Book book1 = libraryService.findBookByIsbn("1234").orElseThrow();
         Book book2 = libraryService.findBookByIsbn("5678").orElseThrow();
-        BiFunction<Book, Book, Boolean> publishDateComparator = (b1, b2) -> {
-            return false; // TODO: 이 부분을 적절히 수정하세요.
-        };
+        BiFunction<Book, Book, Boolean> publishDateComparator = (b1, b2) -> b1.getPublishDate().isBefore(b2.getPublishDate());
         assertTrue(libraryService.compareBooks(book1, book2, publishDateComparator));
     }
 
@@ -188,7 +176,8 @@ public class LibraryServiceTest {
     @Test
     public void testUpdateBookState() {
         UnaryOperator<Book> makeUnavailable = book -> {
-            return book; // TODO: 이 부분을 적절히 수정하세요.
+            book.setAvailable(false);
+            return book;
         };
         libraryService.updateBookState("1234", makeUnavailable);
         assertFalse(libraryService.findBookByIsbn("1234").orElseThrow().isAvailable());
