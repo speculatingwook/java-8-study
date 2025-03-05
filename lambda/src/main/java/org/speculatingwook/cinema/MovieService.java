@@ -134,9 +134,7 @@ public class MovieService {
 
     /** Sorting #1: 영화 제목 오름차순 정렬 */
     public List<Movie> getMoviesSortedByTitleAsc() {
-        List<Movie> sorted = new ArrayList<>(movies);
-        sorted.sort(Comparator.comparing(Movie::getTitle, String.CASE_INSENSITIVE_ORDER));
-        return sorted;
+        return null;
     }
 
     /** Sorting #2: 영화 제목 내림차순 정렬 */
